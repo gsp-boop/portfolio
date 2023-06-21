@@ -8,7 +8,6 @@ type Props = {
 const Project = async ({ params }: Props) => {
   const slug = params.project;
   const project = await getProject(slug);
-  console.log(project);
   return <div>page</div>;
 };
 

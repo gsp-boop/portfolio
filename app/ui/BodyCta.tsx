@@ -1,8 +1,11 @@
+import { ContentSection } from "@/types/typedef";
 import Image from "next/image";
 import Link from "next/link";
 import React, { ReactNode } from "react";
-
-const BodyCta = ({ section }) => {
+interface Props {
+  section: ContentSection;
+}
+const BodyCta = ({ section }: Props) => {
   return (
     <div
       className="hero relative min-h-screen bg-black bg-opacity-40 py-24 lg:py-32 "

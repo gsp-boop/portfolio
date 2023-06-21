@@ -1,5 +1,9 @@
 import { PortableTextBlock } from "sanity";
 
+type Images = {
+  url: string;
+  alt: string;
+};
 export type ContentSection = {
   _id: string;
   createAt: string;
@@ -8,7 +12,7 @@ export type ContentSection = {
   order: number;
   image: string;
   content: PortableTextBlock[];
-  images: string[];
+  images: Images[];
   cta: string;
   slug: string;
   contentType: string;
