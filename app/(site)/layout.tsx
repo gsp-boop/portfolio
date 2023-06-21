@@ -2,6 +2,7 @@ import Link from "next/link";
 import "../globals.css";
 import { getPages } from "@/sanity/sanity-utils";
 import { WiStars } from "react-icons/wi";
+import { StarryBg } from "../ui/StaryyBg";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,30 +14,38 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const pages = await getPages();
-
   return (
     <html data-theme="customTheme" lang="en">
       <body>
-        <nav className="flex items-center">
-          <div className="text-neutral mr-auto animate-pulse ease-in-out duration-200">
-            <WiStars size={150} />
-          </div>
-          <div className="mr-5 font-display font-thin uppercase text-5xl">
-            {pages.map((item: any, i: number) => {
-              return (
-                <Link
-                  className={`link link-hover hover:text-accent mx-1`}
-                  href={"/"}
-                >
-                  {item.title}
-                </Link>
-              );
-            })}
-          </div>
-        </nav>
-        {children}
+        <StarryBg>
+          <Nav />
+          {children}
+        </StarryBg>
       </body>
     </html>
   );
 }
+const Nav = async () => {
+  const pages = await getPages();
+
+  return (
+    <nav className="relative z-20 flex items-center after:absolute after:bottom-4 after:h-[1px] after:w-11/12 after:bg-primary after:ml-auto after:left-0 after:right-0">
+      <div className="text-neutral animate-pulse ease-in-out duration-200">
+        <WiStars size={100} />
+      </div>
+      <h2 className="mr-auto text-neutral font-sans">Souza-dev.com</h2>
+      <div className="mr-5 font-display font-thin text-neutral uppercase text-sm">
+        {pages.map((item: any, i: number) => {
+          return (
+            <>
+              <Link className={`link link-hover `} href={"/"}>
+                {item.title}
+              </Link>
+              {i === 0 && ","}
+            </>
+          );
+        })}
+      </div>
+    </nav>
+  );
+};

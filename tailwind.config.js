@@ -12,8 +12,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ["Exo", "sans-serif"],
+        body: ["Noto Sans", "sans-serif"],
         display: ["Exo", "sans-serif"],
+        sans: ["Grandiflora One", "serif"],
+        date: ["Marcellus", "serif"],
       },
     },
   },
@@ -28,7 +30,7 @@ module.exports = {
           neutral: "#F6F1F1",
           dark: "",
           "base-100": "#FFFEEE",
-          "base-200": "#146C94",
+          "base-200": "#03151D",
         },
       },
       "coffee",
