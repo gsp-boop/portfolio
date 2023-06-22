@@ -1,14 +1,14 @@
-"use client";
 import React, { ReactNode } from "react";
-import { PortableText, PortableTextComponents } from "@portabletext/react";
+import { PortableText } from "@portabletext/react";
 import { ContentSection } from "@/types/typedef";
+import NasaData from "./serverComponents/NasaData";
 interface Props {
   section: ContentSection;
 }
 interface Children {
   children?: ReactNode;
 }
-const Body = ({ section }: Props) => {
+const Body = async ({ section }: Props) => {
   const components = {
     block: {
       h5: ({ children }: Children) => (
@@ -24,26 +24,27 @@ const Body = ({ section }: Props) => {
     },
   };
   return (
-    <div className="w-full my-52  ">
+    <div className="w-full h-screen my-40 flex items-center relative">
       <div className="md:w-1/2 p-12 mx-5  ">
         <div className="mx-auto md:ml-auto">
           <div className="">
             {section.title && (
-              <h3 className="text-5xl font-display font-bold tracking-tighter scale-y-150  bg-gradient-to-tr from-neutral from-20% via-secondary to-accent bg-clip-text text-transparent">
-                {section.title}
-              </h3>
+              <div className="w-fit">
+                <h3 className="text-5xl font-display font-medium scale-y-150 text-base-100">
+                  {section.title}
+                </h3>
+                <p className="text-primary text-md text-right font-sans mt-1">Gabriel Pereira</p>
+              </div>
             )}
             <div className="">
               <div className="text-neutral text-lg md:text-2xl font-body font-thin tracking-widest leading-relaxed mt-4 indent-28 uppercase">
-                <PortableText
-                  components={components}
-                  value={section.content as any}
-                />
+                <PortableText components={components} value={section.content} />
               </div>
             </div>
           </div>
         </div>
       </div>
+      <NasaData />
     </div>
   );
 };
