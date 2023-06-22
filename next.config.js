@@ -12,6 +12,11 @@ const nextConfig = {
             hostname: 'cdn.sanity.io',
             port: '',
           },
+          {
+            protocol: 'https',
+            hostname: 'apod.nasa.gov',
+            port: '',
+          },
         ],
       },
 }

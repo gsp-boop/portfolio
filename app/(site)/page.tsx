@@ -15,11 +15,12 @@ import Body from "../ui/Body";
 import LogoSpinner from "../ui/animations/LogoSpinner";
 import Hero from "../ui/Hero";
 
+
+
 export default async function Home() {
   const projects = await getProjects();
   const cards = await getCards();
   const contentSection = await getContentSection();
-
   function renderUi(type: string, section: ContentSection) {
     switch (type) {
       case "body-cta":
